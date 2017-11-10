@@ -10,7 +10,6 @@ script:
   - cd build
   - cmake ..
   - make
-  - make install
   - cd ..
   - build/elastic demos/biel3d.mesh
 notifications:
