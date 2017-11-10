@@ -1,0 +1,17 @@
+language: c++
+compiler:
+  - gcc
+  - clang
+os:
+  - linux
+  - osx
+script:
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make
+  - make install
+  - cd ..
+  - build/elastic demos/biel3d.mesh
+notifications:
+  email: false
