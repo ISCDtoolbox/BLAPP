@@ -1,3 +1,4 @@
 build
-*.sol
+demos/*.sol
 *~
+tests/output.*
