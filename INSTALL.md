@@ -19,8 +19,6 @@ Mumps is available in the debian repository:
 sudo apt-get install libmumps-dev
 ```
 
-### PETSc
-
 ### Hypre
 Available at [https://computation.llnl.gov/projects/hypre-scalable-linear-solvers-multigrid-methods](https://computation.llnl.gov/projects/hypre-scalable-linear-solvers-multigrid-methods).
 
@@ -34,4 +32,12 @@ sudo apt-get install libhypre-dev
 sudo apt-get install liblapacke-dev
 ```
 
+### MMG
+
 ### Lis
+Available at [http://www.ssisc.org/lis/](http://www.ssisc.org/lis/) or [on github](https://github.com/anishida/lis)
+
+### PETSc
+### Armadillo
+### Trilinos
+### Scalapack
