@@ -4,6 +4,8 @@
 - [Hypre](#hypre)
 - [Lis](#lis)
 
+Follow the guidelines in the [travis file](.travis.yml) to install the different dependencies.
+
 ### Eigen3
 ```
 sudo apt-get install libeigen3-dev
