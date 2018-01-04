@@ -5,12 +5,40 @@ compiler:
 os:
   - linux
   - osx
+before_install:
+  #mmg
+  - git clone https://github.com/MmgTools/mmg.git
+  - cd mmg
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make
+  - sudo make install
+  - cd ../../
+  #lis
+  - git clone https://github.com/anishida/lis.git
+  - cd lis/
+  #with openmp and mpi
+  #- ./configure --enable-omp --enable-mpi
+  #without
+  - ./configure
+  - make
+  - sudo make install
+  - cd ..
+
+addons:
+  apt:
+    packages:
+      - libeigen3-dev
+      - libmumps-dev
+      - libhypre-dev
+      - liblapacke-dev
+      - libscotch-dev
 script:
   - mkdir build
   - cd build
   - cmake ..
   - make
-  - cd ..
-  - build/elastic demos/biel3d.mesh
+  - ctest
 notifications:
   email: false
