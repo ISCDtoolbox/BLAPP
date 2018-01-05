@@ -79,6 +79,15 @@ if(TRUE)
     add_test(test_lis ${MPIEXEC} ${MPIEXEC_NUMPROC_FLAG} ${PROCS} ${MPIEXEC_PREFLAGS} test_lis_exe ${MPIEXEC_POSTFLAGS} 200 200 100)
   endif()
 
+  #METIS
+  find_package(Metis)
+  if(${METIS_FOUND})
+    include_directories(${METIS_INCLUDE_DIRS})
+    add_executable(test_metis_exe ${TEST_DIR}/metis_example.c )
+    target_link_libraries( test_metis_exe ${METIS_LIBRARIES})
+    add_test(test_metis test_metis_exe)
+  endif()
+
   #Lapack(e) , still have to fix the cblas trouble
   find_package(LAPACKE)
   if(${LAPACKE_FOUND})
@@ -87,8 +96,17 @@ if(TRUE)
     target_link_libraries( test_lapack_exe ${LAPACKE_LIBRARIES})
     add_test(test_lapack test_lapack_exe)
   endif()
+  find_package(Parmetis)
   find_package(MKL)
-  #find_package (PETSc)
+
+  find_package (PETSc)
+  if(${PETSC_FOUND})
+    include_directories(${PETSC_INCLUDES})
+    add_definitions (${PETSC_DEFINITIONS})
+    add_executable(test_petsc_exe ${TEST_DIR}/petsc_example.c )
+    target_link_libraries(test_petsc_exe ${PETSC_LIBRARIES})
+    add_test(test_petsc test_petsc_exe)
+  endif()
 
 
 endif()
